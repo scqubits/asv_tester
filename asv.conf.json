@@ -4,14 +4,17 @@
     "project_url": "http://project-homepage.org/",
     "repo": ".",
     "environment_type": "conda",
-    "install_timeout": 1200,
+    "install_timeout": 600,
     "show_commit_url": "https://github.com/scqubits/asv_tester",
-    "pythons": ["3.10"],
+    "pythons": ["2.7", "3.10"],
     "matrix": {
         "req": {
             "numpy": ["1.7", "1.8"],
             "Cython": [],
             "six": ["", null]
+        },
+        "env": {
+            "FOO": "bar"
         }
     },
     "conda_environment_file": "environment.yml"
