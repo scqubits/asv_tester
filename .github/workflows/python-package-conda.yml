@@ -10,7 +10,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      run: git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
     - name: Set up Python 3.9
       uses: actions/setup-python@v3
       with:
@@ -24,6 +23,7 @@ jobs:
 #         conda env update --file environment.yml --name base
     - name: Test with asv
       run: |
+        git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
         conda install asv
         asv machine --yes
         asv continuous base pr --strict -e -v
