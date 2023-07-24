@@ -25,4 +25,4 @@ jobs:
       run: |
         conda install asv
         asv machine --yes
-        asv continuous base pr --strict -e
+        asv continuous --strict -e
