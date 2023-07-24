@@ -9,3 +9,4 @@ env/
 *.iml
 .pytest_cache/
 *.yml
+.idea/
