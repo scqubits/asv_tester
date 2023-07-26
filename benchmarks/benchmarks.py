@@ -1,5 +1,6 @@
 # Write the benchmarking functions here.
 # See "Writing benchmarks" in the asv docs for more information.
+import scqubits as scq
 from asv_tester import bar
 
 class TimeSuite:
@@ -27,6 +28,10 @@ class TimeSuite:
     
     def time_slow_function(self):
         bar.slow_function()
+
+    def time_has_scq(self):
+        tmon = scq.Transmon.create()
+        bar.hello()
 
 
 class MemSuite:
