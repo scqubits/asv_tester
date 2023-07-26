@@ -1,6 +1,6 @@
 # Write the benchmarking functions here.
 # See "Writing benchmarks" in the asv docs for more information.
-from asv_tester import bar
+
 
 class TimeSuite:
     """
@@ -11,7 +11,7 @@ class TimeSuite:
         self.d = {}
         for x in range(500):
             self.d[x] = None
-    
+
     def time_keys(self):
         for key in self.d.keys():
             pass
@@ -24,9 +24,6 @@ class TimeSuite:
         d = self.d
         for key in range(500):
             x = d[key]
-    
-    def time_slow(self):
-        bar.slow_function()
 
 
 class MemSuite:
