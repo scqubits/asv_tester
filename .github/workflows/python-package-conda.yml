@@ -25,7 +25,6 @@ jobs:
       run: |
         git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
         conda install asv
-        conda env create -f environment.yml
         pip install -e .
         asv machine --yes
         asv continuous base pr --strict -e -v --config asv.conf.json
