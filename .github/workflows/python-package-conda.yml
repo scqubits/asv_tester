@@ -18,13 +18,13 @@ jobs:
       run: |
         # $CONDA is an environment variable pointing to the root of the miniconda directory
         echo $CONDA/bin >> $GITHUB_PATH
-#     - name: Install dependencies
-#       run: |
-#         conda env update --file environment.yml --name base
+        - name: Install dependencies
+        - run: |
+        conda env update --file environment.yml --name base
     - name: Test with asv
       run: |
         git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
         conda install asv
         asv machine --yes
-#       asv continuous base pr --strict -e -v --config asv.conf.json --environment 'existing'
         asv run --config asv.conf.json -v --environment 'existing'
+#       asv continuous base pr --strict -e -v --config asv.conf.json --environment 'existing'
