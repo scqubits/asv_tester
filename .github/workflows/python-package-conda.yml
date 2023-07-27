@@ -21,11 +21,13 @@ jobs:
 #       - name: Install dependencies
 #       - run: |
 #       conda env update --file environment.yml --name base
+    - name: set up user
+      run: |
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
     - name: Test with asv
       run: |
         git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
-        git config user.name "Name"
-        git config user.email "kchen4000@gmail.com"
         conda install asv
         pip install -e .
         asv machine --yes
