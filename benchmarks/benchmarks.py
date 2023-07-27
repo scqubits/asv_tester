@@ -1,7 +1,7 @@
 # Write the benchmarking functions here.
 # See "Writing benchmarks" in the asv docs for more information.
-import numpy as np
-import scqubits as scq
+# import numpy as np
+# import scqubits as scq
 from asv_tester import bar
 
 class TimeSuite:
@@ -31,8 +31,8 @@ class TimeSuite:
         bar.slow_function()
 
     def time_has_packages(self):
-        np.arange(3)
-        tmon = scq.Transmon.create()
+        # np.arange(3)
+        # tmon = scq.Transmon.create()
         bar.hello()
 
 
