@@ -27,7 +27,8 @@ jobs:
         conda install asv
         pip install -e .
         asv machine --yes
-        asv continuous base pr --strict -e -v --config asv.conf.json
+        asv run --config asv.conf.json -v --environment 'existing'
         asv gh-pages
+#       asv continuous base pr --strict -e -v --config asv.conf.json
 #       asv continuous base pr --strict -e -v --config asv.conf.json --environment 'existing'
 #       asv run --config asv.conf.json -v --environment 'existing'
