@@ -31,8 +31,8 @@ jobs:
         asv run --config asv.conf.json -v --environment 'existing'
     - name: Upload results to git
       run: |
-        git config pull.rebase false
-        git pull origin gh-pages --allow-unrelated-histories
+        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+        git checkout "${GITHUB_REF:11}
         asv gh-pages
 #       asv continuous base pr --strict -e -v --config asv.conf.json
 #       asv continuous base pr --strict -e -v --config asv.conf.json --environment 'existing'
