@@ -29,9 +29,10 @@ jobs:
         pip install -e .
         asv machine --yes
         asv run --config asv.conf.json -v --environment 'existing'
-        git branch --set-upstream-to=origin/gh-pages gh-pages
-        git checkout -b gh-pages origin/gh-pages
-        git pull --rebase
+    - name: Upload results to git
+      run: |
+        git checkout gh-pages
+        git pull origin gh-pages
         asv gh-pages
 #       asv continuous base pr --strict -e -v --config asv.conf.json
 #       asv continuous base pr --strict -e -v --config asv.conf.json --environment 'existing'
