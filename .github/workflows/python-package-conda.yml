@@ -8,8 +8,6 @@ jobs:
     strategy:
       max-parallel: 5
     steps:
-    - uses: actions/checkout@v2
-    - uses: fregante/setup-git-user@v1
     - uses: actions/checkout@v3
     - name: Set up Python 3.9
       uses: actions/setup-python@v3
@@ -26,6 +24,8 @@ jobs:
       run: |
         git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
         conda install asv
+        git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
+        git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
         pip install -e .
         asv machine --yes
         asv run --config asv.conf.json -v --environment 'existing'
