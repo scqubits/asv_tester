@@ -29,7 +29,7 @@ jobs:
         pip install -e .
         asv machine --yes
         asv run --config asv.conf.json -v --environment 'existing'
-        git checkout -b main origin/gh-pages
+        git checkout -b gh-pages origin/main
         git pull --rebase
         asv gh-pages
 #       asv continuous base pr --strict -e -v --config asv.conf.json
