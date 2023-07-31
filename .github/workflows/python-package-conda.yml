@@ -33,7 +33,7 @@ jobs:
       run: |
         git fetch
         git switch gh-pages
-        git pull
+        git pull -X theirs
         git switch main
         asv gh-pages
 #       asv continuous base pr --strict -e -v --config asv.conf.json
