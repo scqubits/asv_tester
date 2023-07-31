@@ -32,6 +32,7 @@ jobs:
     - name: Upload results to git
       run: |
         asv update
+        asv gh-pages
 #       asv continuous base pr --strict -e -v --config asv.conf.json
 #       asv continuous base pr --strict -e -v --config asv.conf.json --environment 'existing'
 #       asv run --config asv.conf.json -v --environment 'existing'
