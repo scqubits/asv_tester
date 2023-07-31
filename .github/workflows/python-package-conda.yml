@@ -31,7 +31,7 @@ jobs:
         asv run --config asv.conf.json -v --environment 'existing'
     - name: Upload results to git
       run: |
-        git fetch gh-pages
+        git fetch origin/gh-pages
         git checkout gh-pages
         git pull
         asv gh-pages
