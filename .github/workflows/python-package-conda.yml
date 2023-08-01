@@ -33,9 +33,10 @@ jobs:
       run: |
         git fetch
         git switch gh-pages
-        git pull -X theirs
         git switch main
-        asv gh-pages
+        asv publish
+        git switch gh-pages
+        git push
 #       asv continuous base pr --strict -e -v --config asv.conf.json
 #       asv continuous base pr --strict -e -v --config asv.conf.json --environment 'existing'
 #       asv run --config asv.conf.json -v --environment 'existing'
