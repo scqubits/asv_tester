@@ -36,6 +36,8 @@ jobs:
         git pull
         git switch main
         asv gh-pages --no-push
+        git fetch origin gh-pages
+        git checkout gh-pages
         git merge origin/gh-page
 #       asv continuous base pr --strict -e -v --config asv.conf.json
 #       asv continuous base pr --strict -e -v --config asv.conf.json --environment 'existing'
