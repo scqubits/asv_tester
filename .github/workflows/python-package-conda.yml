@@ -36,6 +36,7 @@ jobs:
         git fetch
         git switch gh-pages
         git pull
+        git switch main
         asv gh-pages
         git push
 #       asv continuous base pr --strict -e -v --config asv.conf.json
