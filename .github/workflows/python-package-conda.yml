@@ -32,6 +32,7 @@ jobs:
     - name: Upload results to git
       run: |
         asv publish
+        asv preview
         git push
 #       asv continuous base pr --strict -e -v --config asv.conf.json
 #       asv continuous base pr --strict -e -v --config asv.conf.json --environment 'existing'
