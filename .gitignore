@@ -7,3 +7,4 @@ tests/__pycache__/
 *.iml
 .pytest_cache/
 .idea/
+.asv/html/
