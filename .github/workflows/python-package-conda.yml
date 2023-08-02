@@ -32,6 +32,9 @@ jobs:
     - name: Upload results to git
       run: |
         asv publish
+        git fetch
+        git switch gh-pages
+        git pull
         asv gh-pages
         git push
 #       asv continuous base pr --strict -e -v --config asv.conf.json
