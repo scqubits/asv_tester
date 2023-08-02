@@ -4,7 +4,6 @@ asv_tester.egg-info/
 asv_tester/__pycache__/
 benchmarks/__pycache__/
 tests/__pycache__/
-results/
 *.iml
 .pytest_cache/
 .idea/
