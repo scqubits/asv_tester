@@ -31,13 +31,8 @@ jobs:
         asv run --config asv.conf.json -v --environment 'existing'
     - name: Upload results to git
       run: |
-        git fetch
-        git switch gh-pages
-        git pull
-        git switch main
-        asv gh-pages --no-push
-        git switch gh-pages
-        git ls
+        asv publish
+        git push
 #       asv continuous base pr --strict -e -v --config asv.conf.json
 #       asv continuous base pr --strict -e -v --config asv.conf.json --environment 'existing'
 #       asv run --config asv.conf.json -v --environment 'existing'
