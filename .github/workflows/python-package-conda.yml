@@ -29,9 +29,9 @@ jobs:
         pip install -e .
         asv machine --yes
         asv run --config asv.conf.json -v --environment 'existing'
+        asv publish
     - name: Upload results to git
       run: |
-        asv publish
         git add --all
         git commit -a -m "Generated from GitHub Workflow"
         git push
