@@ -1,11 +1,8 @@
 *.pyc
 asv_tester.egg-info/
-.asv/
-results/
 asv_tester/__pycache__/
 benchmarks/__pycache__/
 tests/__pycache__/
-env/
 *.iml
 .pytest_cache/
 .idea/
