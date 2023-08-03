@@ -25,11 +25,9 @@ jobs:
         conda install asv
         conda install -c conda-forge scqubits
         conda env export > environment.yml -e -f
-        conda env export -n py36 -f py36.yml --no-builds
     - name: Test with asv
       run: |
         git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
-        conda install asv
         git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
         git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
         pip install -e .
