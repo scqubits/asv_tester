@@ -23,9 +23,9 @@ jobs:
     - name: create environment.yml
       run: |
         conda install asv
-        conda update -n base -c defaults -c conda-forge conda
-        conda install -c conda-forge scqubits
-        conda env export > environment.yml -e -f
+        conda env export environment.yml -e -f
+#        conda update -n base -c defaults -c conda-forge conda
+#        conda install -c conda-forge scqubits
     - name: Test with asv
       run: |
         git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
