@@ -23,7 +23,7 @@ jobs:
     - name: create environment.yml
       run: |
         conda install asv
-        conda list -e > environment.yml
+        conda env export > environment.yml -e -f
 #        conda update -n base -c defaults -c conda-forge conda
 #        conda install -c conda-forge scqubits
     - name: Test with asv
