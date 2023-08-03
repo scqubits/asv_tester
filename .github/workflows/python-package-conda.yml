@@ -28,7 +28,7 @@ jobs:
         git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
         pip install -e .
         asv machine --yes
-        asv run --config asv.conf.json -v --environment 'existing'
+        asv run
         asv publish
     - name: Upload results to git
       run: |
