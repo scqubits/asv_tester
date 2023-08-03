@@ -8,4 +8,5 @@ tests/__pycache__/
 .pytest_cache/
 .idea/
 .asv/html/
+environment.yml
 .vscode/
