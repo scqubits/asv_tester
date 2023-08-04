@@ -35,12 +35,16 @@ jobs:
         pip install -e .
         asv machine --yes
         asv run
-        asv publish
     - name: Upload results to git
       run: |
+        get fetch
+        asv publish
         git add --all
         git commit -a -m "Generated from GitHub Workflow"
         git push
+        git switch gh-pages
+        git pull
+        git switch main
         asv gh-pages
 #       asv continuous base pr --strict -e -v --config asv.conf.json
 #       asv continuous base pr --strict -e -v --config asv.conf.json --environment 'existing'
