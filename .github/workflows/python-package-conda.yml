@@ -23,9 +23,10 @@ jobs:
     - name: create environment.yml
       run: |
         conda install asv
+        conda install -c anaconda numpy
         conda env export > environment.yml --no-builds
-#        conda update -n base -c defaults -c conda-forge conda
-#        conda install -c conda-forge scqubits
+#       conda update -n base -c defaults -c conda-forge conda
+#       conda install -c conda-forge scqubits
     - name: Test with asv
       run: |
         git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
@@ -40,6 +41,7 @@ jobs:
         git add --all
         git commit -a -m "Generated from GitHub Workflow"
         git push
+        asv gh-pages
 #       asv continuous base pr --strict -e -v --config asv.conf.json
 #       asv continuous base pr --strict -e -v --config asv.conf.json --environment 'existing'
 #       asv run --config asv.conf.json -v --environment 'existing'
