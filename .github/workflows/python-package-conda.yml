@@ -37,7 +37,7 @@ jobs:
         asv run
     - name: Upload results to git
       run: |
-        get fetch
+        git fetch
         asv publish
         git add --all
         git commit -a -m "Generated from GitHub Workflow"
