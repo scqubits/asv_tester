@@ -22,6 +22,7 @@ jobs:
 #       conda env update --file environment.yml --name base
     - name: create environment.yml
       run: |
+        conda update -n base -c defaults -c conda-forge conda
         conda install asv
         conda install -c conda-forge scqubits
         conda env export > environment.yml --no-builds
