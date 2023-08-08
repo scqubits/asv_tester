@@ -24,7 +24,7 @@ jobs:
       run: |
         conda update -n base -c defaults -c conda-forge conda
         conda install asv
-        conda install -c conda-forge scqubits
+        pip install scqubits
         conda env export > environment.yml --no-builds
 #       conda update -n base -c defaults -c conda-forge conda
 #       conda install -c anaconda numpy
