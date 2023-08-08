@@ -31,21 +31,13 @@ jobs:
     - name: Test with asv
       run: |
         git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
-        git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
-        git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
         pip install -e .
         asv machine --machine github-actions --yes
         asv run --interleave-processes -j 8
     - name: Upload results to git
       run: |
-        git fetch
-        asv publish
-        git add --all
-        git commit -a -m "Generated from GitHub Workflow"
-        git push
-        git switch gh-pages
-        git pull
-        git switch main
+        git config --global user.email "$GIT_AUTHOR_EMAIL"
+        git config --global user.name "$GIT_AUTHOR_NAME"
         asv gh-pages --no-push
         git push -f origin gh-pages:gh-pages
 #       asv continuous base pr --strict -e -v --config asv.conf.json
