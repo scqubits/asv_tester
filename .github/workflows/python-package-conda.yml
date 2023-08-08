@@ -35,7 +35,7 @@ jobs:
         git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
         pip install -e .
         asv machine --machine github-actions --yes
-        asv run
+        asv run --interleave-processes -j 8
     - name: Upload results to git
       run: |
         git fetch
