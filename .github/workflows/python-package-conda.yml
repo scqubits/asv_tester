@@ -22,7 +22,6 @@ jobs:
 #       conda env update --file environment.yml --name base
     - name: create environment.yml
       run: |
-        conda update -n base -c defaults -c conda-forge conda
         conda install asv
         pip install scqubits
         conda env export > environment.yml --no-builds
@@ -35,7 +34,7 @@ jobs:
         git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
         git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
         pip install -e .
-        asv machine --yes
+        asv machine --machine github-actions --yes
         asv run
     - name: Upload results to git
       run: |
