@@ -40,6 +40,9 @@ jobs:
         git config --global user.name "$GIT_AUTHOR_NAME"
         asv gh-pages --no-push
         git push -f origin gh-pages:gh-pages
+      env:
+        GIT_AUTHOR_NAME: ${{ github.actor }}
+        GIT_AUTHOR_EMAIL: ${{ github.actor }}@users.noreply.github.com
 #       asv continuous base pr --strict -e -v --config asv.conf.json
 #       asv continuous base pr --strict -e -v --config asv.conf.json --environment 'existing'
 #       asv run --config asv.conf.json -v --environment 'existing'
