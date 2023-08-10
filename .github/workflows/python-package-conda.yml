@@ -28,6 +28,13 @@ jobs:
 #       conda update -n base -c defaults -c conda-forge conda
 #       conda install -c anaconda numpy
 #       conda install -c conda-forge scqubits
+    - name: Restore previous results
+      uses: actions/cache@v3
+      with:
+        path: .asv
+        key: asv-${{ runner.os }}
+        restore-keys: |
+          asv-
     - name: Test with asv
       run: |
         git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
