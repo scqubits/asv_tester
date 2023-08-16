@@ -30,10 +30,11 @@ jobs:
 #       conda install -c conda-forge scqubits
     - name: Test with asv
       run: |
+        git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
         pip install -e .
         asv machine --machine github-actions --yes
-        asv continuous -f 1.25 main HEAD
-        CHANGES="$(asv compare --only-changed -f 1.25 main HEAD)"
+        asv continuous -f 1.25 base pr
+        CHANGES="$(asv compare --only-changed -f 1.25 base pr)"
         echo "$CHANGES"
         [ -z "$CHANGES" ] || exit 1
 #       git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
