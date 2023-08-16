@@ -33,8 +33,8 @@ jobs:
         git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
         pip install -e .
         asv machine --machine github-actions --yes
-        asv continuous -f 1.25 base pr
-        CHANGES="$(asv compare --only-changed -f 1.25 base pr)"
+        asv continuous base pr -f 1.25 
+        CHANGES="$(asv compare base pr --only-changed -f 1.25)"
         echo "$CHANGES"
         [ -z "$CHANGES" ] || exit 1
 #       git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
