@@ -46,7 +46,7 @@ jobs:
           asv-
     - name: test with asv
       run: |
-        asv run ca2903553d6aa05272e04e7a61992f9a2812d927
+        asv run HEAD
 #       asv continuous base pr -f 1.25 
 #       CHANGES="$(asv compare base pr --only-changed -f 1.25)"
 #       echo "$CHANGES"
