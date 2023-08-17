@@ -30,11 +30,20 @@ jobs:
 #       conda update -n base -c defaults -c conda-forge conda
 #       conda install -c anaconda numpy
 #       conda install -c conda-forge scqubits
-    - name: Test with asv
+    - name: Setup with asv
       run: |
         git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
         pip install -e .
         asv machine --machine github-actions --yes
+    - name: Restore previous results
+      uses: actions/cache@v3
+      with:
+        path: .asv
+        key: asv-${{ runner.os }}
+        restore-keys: |
+          asv-
+    - name: test with asv
+      run: |
         asv continuous main pr -f 1.25 
         CHANGES="$(asv compare main pr --only-changed -f 1.25)"
         echo "$CHANGES"
