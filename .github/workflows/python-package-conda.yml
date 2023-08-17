@@ -32,9 +32,10 @@ jobs:
 #       conda install -c conda-forge scqubits
     - name: Setup with asv
       run: |
-        git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
+        git checkout main && git checkout -
         pip install -e .
         asv machine --machine github-actions --yes
+#       git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
     - name: Restore previous results
       uses: actions/cache@v3
       with:
@@ -44,7 +45,7 @@ jobs:
           asv-
     - name: test with asv
       run: |
-        asv run main
+        asv run ca2903553d6aa05272e04e7a61992f9a2812d927
 #       asv continuous base pr -f 1.25 
 #       CHANGES="$(asv compare base pr --only-changed -f 1.25)"
 #       echo "$CHANGES"
