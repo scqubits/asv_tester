@@ -44,7 +44,7 @@ jobs:
           asv-
     - name: test with asv
       run: |
-        asv run -j 8 --interleave-processes --skip-existing HEAD
+        asv run -j 8 --interleave-processes --skip-existing 8b13e98fbbff301735032edff6d6c3f615fccdd1..HEAD
 #       asv continuous base pr -f 1.25 
 #       CHANGES="$(asv compare base pr --only-changed -f 1.25)"
 #       echo "$CHANGES"
