@@ -44,8 +44,7 @@ jobs:
           asv-
     - name: test with asv
       run: |
-        git pull
-        asv run 43f5f4e41b5105a78c46509d10c399c546858215
+        asv run main
 #       asv continuous base pr -f 1.25 
 #       CHANGES="$(asv compare base pr --only-changed -f 1.25)"
 #       echo "$CHANGES"
