@@ -56,9 +56,7 @@ jobs:
         git config --global user.email "$GIT_AUTHOR_EMAIL"
         git config --global user.name "$GIT_AUTHOR_NAME"
         asv gh-pages --no-push
-        git pull
-        git switch gh-pages
-        git push origin gh-pages
+        git push origin gh-pages:gh-pages
       env:
         GIT_AUTHOR_NAME: ${{ github.actor }}
         GIT_AUTHOR_EMAIL: ${{ github.actor }}@users.noreply.github.com
