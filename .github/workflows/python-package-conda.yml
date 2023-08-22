@@ -51,13 +51,13 @@ jobs:
 #       CHANGES="$(asv compare base pr --only-changed -f 1.25)"
 #       echo "$CHANGES"
 #       [ -z "$CHANGES" ] || exit 1
-#       git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
-#       git checkout master && git checkout -
     - name: Upload results to git
       run: |
+        git fetch
         git config --global user.email "$GIT_AUTHOR_EMAIL"
         git config --global user.name "$GIT_AUTHOR_NAME"
         asv gh-pages --no-push
+        git switch gh-pages
         git push -f origin gh-pages:gh-pages
       env:
         GIT_AUTHOR_NAME: ${{ github.actor }}
