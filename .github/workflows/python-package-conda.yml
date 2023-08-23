@@ -39,17 +39,10 @@ jobs:
         asv machine --machine github-actions --yes
 #       git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
 #       git checkout main && git checkout -
-    - name: Restore previous results
-      uses: actions/cache@v3
-      with:
-        path: .asv
-        key: asv-${{ runner.os }}
-        restore-keys: |
-          asv-
     - name: test with asv
       run: |
         git fetch --all
-        asv run -j 8 --interleave-processes --skip-existing cd3ae502d68f3f3ce31ef586f4fc1b290781b2c6..HEAD
+        asv run -j 8 --skip-existing-commits cd3ae502d68f3f3ce31ef586f4fc1b290781b2c6..HEAD
 #       asv continuous base pr -f 1.25 
 #       CHANGES="$(asv compare base pr --only-changed -f 1.25)"
 #       echo "$CHANGES"
