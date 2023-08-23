@@ -85,8 +85,8 @@ jobs:
         asv machine --machine github-actions --yes
     - name: test with asv
       run: |
-        asv continuous base pr -f 0.9
-        CHANGES="$(asv compare base pr --only-changed -f 0.9)"
+        asv continuous base pr -f 2
+        CHANGES="$(asv compare base pr --only-changed -f 2)"
         echo "$CHANGES"
         [ -z "$CHANGES" ] || exit 1
         git push origin gh-pages:gh-pages
