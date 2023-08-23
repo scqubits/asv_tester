@@ -40,7 +40,7 @@ jobs:
 #       git checkout main && git checkout -
     - name: test with asv
       run: |
-        asv run -j 8 --interleave-rounds --skip-existing HEAD
+        asv run -j 8 --interleave-rounds --skip-existing 4c173ee9158cf350cf3a68107289f868bb5535bd..HEAD
     - name: Upload results to git
       run: |
         git config --global user.email "$GIT_AUTHOR_EMAIL"
