@@ -1,1 +1,1 @@
-{"regressions": [["benchmarks.TimeSuite.time_slow_function", "graphs/branch-main/machine-github-actions/python-3.9/benchmarks.TimeSuite.time_slow_function.json", {}, null, 2.0001770445002194, 0.10014900200008015, [[null, 255, 0.10017450799978178, 2.0001770445002194]]]]}
+{"regressions": []}
