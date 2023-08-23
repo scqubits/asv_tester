@@ -70,6 +70,14 @@ jobs:
     - name: Add conda to system path
       run: |
         echo $CONDA/bin >> $GITHUB_PATH
+    - name: create environment.yml
+      run: |
+        conda install asv
+        pip install scqubits
+        conda env export > environment.yml --no-builds
+#       conda update -n base -c defaults -c conda-forge conda
+#       conda install -c anaconda numpy
+#       conda install -c conda-forge scqubits
     - name: Setup with asv
       run: |
         git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
