@@ -85,15 +85,10 @@ jobs:
         asv machine --machine github-actions --yes
     - name: test with asv
       run: |
-        asv continuous base pr -f 1.25
-        CHANGES="$(asv compare base pr --only-changed -f 1.25)"
-        echo "$CHANGES"
-        echo "$CHANGES"
-        echo "$CHANGES"
-        echo "$CHANGES"
-        echo "$CHANGES"
-        echo "$CHANGES"
-        [[ "$CHANGES" == 'PERFORMANCE DECREASED.']] || exit 1
+        Check = "$asv continuous base pr -f 1.25"
+        CHANGES = "$(asv compare base pr --only-changed -f 1.25)"
+        echo "$Check"
+        [[ "$Check" == *"PERFORMANCE DECREASED."* ]] || exit 1
         git push origin gh-pages:gh-pages
       env:
         GIT_AUTHOR_NAME: ${{ github.actor }}
