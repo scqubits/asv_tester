@@ -49,7 +49,7 @@ jobs:
     - name: test with asv
       run: |
         git fetch --all
-        asv run -j 8 --interleave-processes --skip-existing-commits cd3ae502d68f3f3ce31ef586f4fc1b290781b2c6..HEAD
+        asv run -j 8 --interleave-processes --skip-existing cd3ae502d68f3f3ce31ef586f4fc1b290781b2c6..HEAD
 #       asv continuous base pr -f 1.25 
 #       CHANGES="$(asv compare base pr --only-changed -f 1.25)"
 #       echo "$CHANGES"
