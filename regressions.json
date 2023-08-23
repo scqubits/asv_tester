@@ -1,1 +1,1 @@
-{"regressions": []}
+{"regressions": [["benchmarks.TimeSuite.time_values", "graphs/arch-null/branch-main/cpu-null/machine-github-actions/num_cpu-null/os-null/python-3.9/ram-null/benchmarks.TimeSuite.time_values.json", {"machine": "github-actions", "python": "3.9", "arch": null, "cpu": null, "num_cpu": null, "os": null, "ram": null}, null, 6.553516417915516e-06, 5.444699900798644e-06, [[186, 192, 5.444699900798644e-06, 6.553516417915516e-06]]]]}
