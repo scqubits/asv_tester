@@ -85,7 +85,7 @@ jobs:
         asv machine --machine github-actions --yes
     - name: test with asv
       run: |
-        CHECK="$asv continuous base pr -f 1.25"
+        CHECK="$(asv continuous base pr -f 1.25)"
         CHANGES="$(asv compare base pr --only-changed -f 1.25)"
         echo "$CHECK"
         echo "$CHANGES"
