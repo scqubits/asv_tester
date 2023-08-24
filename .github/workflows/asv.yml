@@ -89,4 +89,4 @@ jobs:
         CHANGES="$(asv compare base pr --only-changed -f 1.25)"
         echo "$CHECK"
         echo "$CHANGES"
-        [[ "$CHECK" == *"PERFORMANCE DECREASED."* ]] || exit 1
+        if [[ $CHECK = *DECREASED.*]]; then exit 1; fi
