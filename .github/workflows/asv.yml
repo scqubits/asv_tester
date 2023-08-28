@@ -89,9 +89,11 @@ jobs:
       run: |
         CHECK="$(asv continuous --only-changed -f 1.25 base pr)"
         CHANGES="$(asv continuous --only-changed -f 1.25 base pr)"
-        echo $CHECK
-        echo $CHANGES
+        echo "$CHECK"
+        echo "$CHANGES"
         if [ $CHECK = *INCREASED.*]
         then 
-          echo "inceased!"
+          echo "increased!"
+        else
+          echo "Not Increased!"
         fi
