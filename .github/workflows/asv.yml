@@ -90,6 +90,6 @@ jobs:
         echo "$Check"
         echo "$Changes"
       env: 
-        Check: ${{"$(asv continuous --only-changed -f 1.25 base pr)"}}
-        Changes: ${{"$(asv compare --only-changed -f 1.25 base pr)"}}
+        Check: "$(asv continuous --only-changed -f 1.25 base pr)"
+        Changes: "$(asv compare --only-changed -f 1.25 base pr)"
       
