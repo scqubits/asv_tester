@@ -89,5 +89,5 @@ jobs:
       run: |
         CHECK="$(asv continuous --only-changed -f 1.25 base pr)"
         CHANGES="$(asv continuous --only-changed -f 1.25 base pr)"
-        echo CHECK
-        echo CHANGES
+        echo $CHECK
+        echo $CHANGES
