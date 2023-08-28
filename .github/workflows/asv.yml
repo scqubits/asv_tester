@@ -5,6 +5,8 @@ on:
     branches: main
   pull_request:
     branches: main
+  schedule:
+  - cron: "0 2 * * 1"
 
 jobs:
   asvAllBenchMarks:
@@ -88,6 +90,6 @@ jobs:
         echo "$Check"
         echo "$Changes"
       env: 
-        Check: ${{(asv continuous --only-changed -f 1.25 base pr)}}
-        Changes: ${{(asv compare --only-changed -f 1.25 base pr)}}
+        Check: ${{"$asv continuous --only-changed -f 1.25 base pr"}}
+        Changes: ${{"$asv compare --only-changed -f 1.25 base pr"}}
       
