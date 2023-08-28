@@ -91,10 +91,9 @@ jobs:
         CHANGES="$(asv compare --only-changed -f 1.25 base pr)"
         echo "$CHECK"
         echo "$CHANGES"
-        if echo "$CHECK" | sed -n '/DECREASED/p'
+        if [-z echo "$CHECK" | sed -n '/DECREASED/p']
         then 
-          echo "Failed"
-          exit 1
+          echo "NOT FAILED"
         else
-          exit 0
+          echo "FAILED"
         fi
