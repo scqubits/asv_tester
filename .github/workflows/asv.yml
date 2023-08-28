@@ -85,14 +85,7 @@ jobs:
         asv machine --machine github-actions --yes
     - name: test with asv
       run: |
-        CHECK="$(asv continuous base pr -f 1.25)"
         CHANGES="$(asv compare base pr --only-changed -f 1.25)"
-        echo "$CHECK"
         echo "$CHANGES"
-    - name: Compare
-      if: $CHECK = *DECREASED.*
-      uses: actions/github-script@v3
-      with:
-        script: |
-          core.setFailed('Runtime is now worse.')          
+        [-z $CHANGES] || exit 1
 #       if [[ $CHECK = *DECREASED.*]]; then echo "decreased!"; exit 1; else echo "not decreased!"; exit 0; fi
