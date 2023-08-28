@@ -93,6 +93,7 @@ jobs:
         echo "$CHANGES"
         if echo "$CHECK" | sed -n '/DECREASED/p'
         then 
+          echo "Failed"
           exit 1
         else
           exit 0
