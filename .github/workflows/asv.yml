@@ -87,5 +87,5 @@ jobs:
       run: |
         CHANGES="$(asv compare base pr --only-changed -f 1.25)"
         echo "$CHANGES"
-        [-z $CHANGES] || exit 1
+        [ -z "$CHANGES" ] || exit 1
 #       if [[ $CHECK = *DECREASED.*]]; then echo "decreased!"; exit 1; else echo "not decreased!"; exit 0; fi
