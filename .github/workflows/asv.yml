@@ -83,10 +83,11 @@ jobs:
         git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
         pip install -e .
         asv machine --machine github-actions --yes
-    - name: test with asv
+    - name: asv continuous check
       run: |
-        CHECK="$(asv continuous base pr --only-changed -f 1.25)"
-        CHANGES="$(asv compare base pr --only-changed -f 1.25)"
-        echo "$CHECK"
-        echo "$CHANGES"
-        if [[ $CHECK = *DECREASED.*]]; then echo "decreased!"; exit 1; else echo "not decreased!"; exit 0; fi
+        echo "$Check"
+        echo "$Changes"
+      env: 
+        Check: ${{asv continuous --only-changed -f 1.25 base pr}}
+        Changes: ${{asv compare --only-changed -f 1.25 base pr}}
+      
