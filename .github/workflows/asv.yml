@@ -91,3 +91,7 @@ jobs:
         CHANGES="$(asv continuous --only-changed -f 1.25 base pr)"
         echo $CHECK
         echo $CHANGES
+        if [ $CHECK = *INCREASED.*]
+        then 
+          echo "inceased!"
+        fi
