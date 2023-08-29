@@ -87,15 +87,17 @@ jobs:
         asv machine --machine github-actions --yes
     - name: asv continuous check
       run: |
-        CHECK="$(asv continuous --only-changed -f 1.25 base pr)"
-        CHANGES="$(asv compare --only-changed -f 1.25 base pr)"
-        echo "$CHECK"
-        echo "$CHANGES"
-        CONTAINS="$(echo "$(grep -c DECREASE <<< "$CHECK" )")"
-        if (($CONTAINS == 0))
-        then
-        echo "NOT DECREASE"
-        else
-        echo "DECREASE"
-        fi
-        echo "COMPLETE"
+        asv continuous --only-changed -f 1.25 base pr
+        asv compare --only-changed -f 1.25 base pr
+#        CHECK="$(asv continuous --only-changed -f 1.25 base pr)"
+#        CHANGES="$(asv compare --only-changed -f 1.25 base pr)"
+#        echo "$CHECK"
+#        echo "$CHANGES"
+#        CONTAINS="$(echo "$(grep -c DECREASE <<< "$CHECK" )")"
+#        if (($CONTAINS == 0))
+#        then
+#        echo "NOT DECREASE"
+#        else
+#        echo "DECREASE"
+#        fi
+#        echo "COMPLETE"
