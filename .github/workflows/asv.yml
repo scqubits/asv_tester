@@ -92,3 +92,4 @@ jobs:
         echo "$CHECK"
         echo "$CHANGES"
         echo "$CHECK" | grep -c DECREASE
+        echo "COMPLETE"
