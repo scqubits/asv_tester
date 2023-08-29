@@ -93,7 +93,7 @@ jobs:
         echo "$CHANGES"
         if [-z echo "$CHECK" | sed -n '/DECREASED/p']
         then 
-          echo "NOT FAILED"
+          echo "FOUND DECREASED"
         else
-          echo "FAILED"
+          echo "DID NOT FIND DECREASED"
         fi
