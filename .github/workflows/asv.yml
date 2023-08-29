@@ -92,11 +92,3 @@ jobs:
         echo "$CHECK"
         echo "$CHANGES"
         echo "$CHECK" | grep -c DECREASE
-#        CONTAINS="$(echo "$CHECK" | grep DECREASE)"
-#        echo $CONTAINS
-#        if [ -z $CONTAINS ]
-#        then
-#          echo "NO DECREASE"
-#        else
-#          echo "DECREASE"
-#        fi
