@@ -91,10 +91,9 @@ jobs:
         CHANGES="$(asv compare --only-changed -f 1.25 base pr)"
         echo "$CHECK"
         echo "$CHANGES"
-        sudo apt-get update
-        sudo apt-get -y install grep
-        CONTAINS="$(echo "$CHECK" | grep DECREASE)"
-        echo $CONTAINS
+        echo "$CHECK" | grep -c DECREASE
+#        CONTAINS="$(echo "$CHECK" | grep DECREASE)"
+#        echo $CONTAINS
 #        if [ -z $CONTAINS ]
 #        then
 #          echo "NO DECREASE"
