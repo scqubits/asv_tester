@@ -91,7 +91,7 @@ jobs:
         CHANGES="$(asv compare --only-changed -f 1.25 base pr)"
         echo "$CHECK"
         echo "$CHANGES"
-        CONTAINS="$(echo "CHECK" | grep DECREASE)"
+        CONTAINS="$(echo "$CHECK" | grep DECREASE)"
         echo $CONTAINS
 #        if [ -z $CONTAINS ]
 #        then
