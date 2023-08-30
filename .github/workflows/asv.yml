@@ -96,13 +96,13 @@ jobs:
       run: |
         CHECK="$(asv continuous --only-changed -f 1.25 base pr)"
         echo "$CHECK"
-        CONTAINS="$(echo "$(grep -c DECREASE <<< "$CHECK" )")"
-        if (($CONTAINS == 0))
-        then
-        echo "NOT DECREASE"
-        else
-        echo "DECREASE"
-        fi
-        echo "COMPLETE"
+#        CONTAINS="$(echo "$(grep -c DECREASE <<< "$CHECK" )")"
+#        if (($CONTAINS == 0))
+#        then
+#        echo "NOT DECREASE"
+#        else
+#        echo "DECREASE"
+#        fi
+#        echo "COMPLETE"
 #        CHANGES="$(asv compare --only-changed -f 1.25 base pr)"
 #        echo "$CHANGES"
