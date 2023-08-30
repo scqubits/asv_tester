@@ -31,15 +31,10 @@ jobs:
         conda install asv
         pip install scqubits
         conda env export > environment.yml --no-builds
-#       conda update -n base -c defaults -c conda-forge conda
-#       conda install -c anaconda numpy
-#       conda install -c conda-forge scqubits
     - name: Setup with asv
       run: |
         pip install -e .
         asv machine --machine github-actions --yes
-#       git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
-#       git checkout main && git checkout -
     - name: test with asv
       run: |
         asv run -j 8 --interleave-rounds --skip-existing 4c173ee9158cf350cf3a68107289f868bb5535bd..HEAD
@@ -77,9 +72,6 @@ jobs:
         conda install asv
         pip install scqubits
         conda env export > environment.yml --no-builds
-#       conda update -n base -c defaults -c conda-forge conda
-#       conda install -c anaconda numpy
-#       conda install -c conda-forge scqubits
     - name: Setup with asv
       run: |
         git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
