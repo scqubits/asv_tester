@@ -85,16 +85,10 @@ jobs:
         git fetch origin $GITHUB_BASE_REF:base $GITHUB_REF:pr
         pip install -e .
         asv machine --machine github-actions --yes
-    - name: Restore previous results
-      uses: actions/cache@v3
-      with:
-        path: .asv
-        key: asv-${{ runner.os }}
-        restore-keys: |
-          asv-
     - name: asv continuous check
       run: |
         asv continuous --only-changed -f 1.25 base pr
+        echo "COMPLETE"
 #        CHECK="$(asv continuous --only-changed -f 1.25 base pr)"
 #        echo "$CHECK"
 #        CONTAINS="$(echo "$(grep -c DECREASE <<< "$CHECK" )")"
