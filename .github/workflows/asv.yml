@@ -94,8 +94,9 @@ jobs:
           asv-
     - name: asv continuous check
       run: |
-        CHECK="$(asv continuous --only-changed -f 1.25 base pr)"
-        echo "$CHECK"
+        asv continuous --only-changed -f 1.25 base pr
+#        CHECK="$(asv continuous --only-changed -f 1.25 base pr)"
+#        echo "$CHECK"
 #        CONTAINS="$(echo "$(grep -c DECREASE <<< "$CHECK" )")"
 #        if (($CONTAINS == 0))
 #        then
