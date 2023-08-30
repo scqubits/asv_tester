@@ -95,7 +95,7 @@ jobs:
     - name: asv continuous check
       run: |
         asv continuous --interleave-process --only-changed -f 1.25 base pr
-        asv compare --only-changed -f 1.25 base pr
+        asv compare --only-changed -f 1.25 main HEAD
 #        CHECK="$(asv continuous --only-changed -f 1.25 base pr)"
 #        CHANGES="$(asv compare --only-changed -f 1.25 base pr)"
 #        echo "$CHECK"
