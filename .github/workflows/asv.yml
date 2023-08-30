@@ -79,8 +79,9 @@ jobs:
         asv machine --machine github-actions --yes
     - name: asv continuous check
       run: |
-        asv continuous --interleave-processes --only-changed -f 1.25 base pr
         echo "COMPLETE"
+    - name: previous branch is cursed
+      run: asv continuous --interleave-processes --only-changed -f 1.25 base pr
 #        CHECK="$(asv continuous --only-changed -f 1.25 base pr)"
 #        echo "$CHECK"
 #        CONTAINS="$(echo "$(grep -c DECREASE <<< "$CHECK" )")"
