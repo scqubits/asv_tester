@@ -4,4 +4,4 @@ def hello():
     return "hello"
 
 def slow_function():
-    time.sleep(2)    # consider changing this line to simulate a code change that alters overall runtime
+    time.sleep(1.9)    # consider changing this line to simulate a code change that alters overall runtime
