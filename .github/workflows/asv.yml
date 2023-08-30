@@ -79,7 +79,7 @@ jobs:
         asv machine --machine github-actions --yes
     - name: asv continuous check
       run: |
-        asv continuous --only-changed -f 1.25 base pr
+        asv continuous --interleave-processes --only-changed -f 1.25 base pr
         echo "COMPLETE"
 #        CHECK="$(asv continuous --only-changed -f 1.25 base pr)"
 #        echo "$CHECK"
